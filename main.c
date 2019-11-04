@@ -8,22 +8,44 @@
 #include "primes.h" 
 #include "ip_analysis.h"
 #include "sorts.h"
+#include "linked_list.h"
 
 int main(void)
 {
-	int sort_test_array[TEST_SIZE] = { 4,13,12,10,
-							1,2,5,15,
-							3,5,9,8,
-							14,11,0,16 };
-	print_list(sort_test_array, TEST_SIZE);
-	merge_sort(sort_test_array, TEST_SIZE);
-	print_list(sort_test_array, TEST_SIZE);
+
+	struct list_node ln1,ln2,ln3,ln4;
+	struct linked_list list1;
+	init_list(&list1);
+	init_node(&ln1, 1);
+	init_node(&ln2, 2);
+	init_node(&ln3, 3);
+	init_node(&ln4, 4);
+	print_linked_list(&list1);
+	add_node(&list1, &ln1);
+	print_linked_list(&list1);
+	add_node(&list1, &ln3);
+	add_node(&list1, &ln2);
+	print_linked_list(&list1);
+	remove_node(&list1, 3);
+	print_linked_list(&list1);
+
 
 	scanf_s("a");
 	//getch();
 	exit(0);
 }
 
+void sort_testing()
+{
+	int sort_test_array[TEST_SIZE] = { 4,13,12,10,
+						1,2,5,15,
+						3,5,9,8,
+						14,11,0,16 };
+	print_list(sort_test_array, TEST_SIZE);
+	merge_sort(sort_test_array, TEST_SIZE);
+	print_list(sort_test_array, TEST_SIZE);
+
+}
 
 void take_home_questions()
 {
